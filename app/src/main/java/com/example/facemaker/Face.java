@@ -1,3 +1,7 @@
+/*
+@author Tony Hayden
+ */
+
 package com.example.facemaker;
 
 import java.util.*;
