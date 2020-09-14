@@ -32,10 +32,10 @@
             android:layout_weight="4"
             android:orientation="horizontal">
 
-            <SurfaceView
-                android:id="@+id/surfaceView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <com.example.facemaker.FaceView
+                android:id="@+id/FaceView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1" />
         </LinearLayout>
 
@@ -71,27 +71,29 @@
             </LinearLayout>
 
             <RadioGroup
+                android:id="@+id/radioGroup1"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/radioButton3"
+                    android:id="@+id/radioSkin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:checked="true"
                     android:text="Skin" />
 
                 <RadioButton
-                    android:id="@+id/radioButton2"
+                    android:id="@+id/radioEyes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Eyes" />
 
                 <RadioButton
-                    android:id="@+id/radioButton"
+                    android:id="@+id/radioHair"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -128,10 +130,11 @@
                     android:text="Red" />
 
                 <SeekBar
-                    android:id="@+id/seekBar5"
+                    android:id="@+id/seekBarRed"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:max="255" />
+                    android:max="255"
+                    android:tag="seekBarRed" />
 
             </LinearLayout>
 
@@ -149,10 +152,11 @@
                     android:text="Green" />
 
                 <SeekBar
-                    android:id="@+id/seekBar2"
+                    android:id="@+id/seekBarGreen"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:max="255" />
+                    android:max="255"
+                    android:tag="seekBarGreen" />
             </LinearLayout>
 
             <LinearLayout
@@ -169,10 +173,11 @@
                     android:text="Blue" />
 
                 <SeekBar
-                    android:id="@+id/seekBar3"
+                    android:id="@+id/seekBarBlue"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:max="255" />
+                    android:max="255"
+                    android:tag="seekBarBlue" />
             </LinearLayout>
         </LinearLayout>
 

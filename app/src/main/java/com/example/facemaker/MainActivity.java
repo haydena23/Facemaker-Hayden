@@ -10,6 +10,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.RadioGroup;
+import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -19,6 +22,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        FaceView fv1 = findViewById(R.id.FaceView);
+        FaceController fc1 = new FaceController(fv1);
 
         /**
          * External Citation
@@ -33,6 +39,20 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
+
+        Button randButton = findViewById(R.id.button);
+        randButton.setOnClickListener(fc1);
+
+        RadioGroup group1 = findViewById(R.id.radioGroup1);
+        group1.setOnCheckedChangeListener(fc1);
+
+        SeekBar redBar = findViewById(R.id.seekBarRed);
+        redBar.setOnSeekBarChangeListener(fc1);
+        SeekBar greenBar = findViewById(R.id.seekBarGreen);
+        greenBar.setOnSeekBarChangeListener(fc1);
+        SeekBar blueBar = findViewById(R.id.seekBarBlue);
+        blueBar.setOnSeekBarChangeListener(fc1);
+
     }
 
     @Override

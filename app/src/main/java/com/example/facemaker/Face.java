@@ -8,10 +8,16 @@ import java.util.*;
 
 public class Face{
 
-    private int skinColor;
-    private int eyeColor;
-    private int hairColor;
-    private int hairStyle;
+    public int skinColorR = 0;
+    public int skinColorG = 0;
+    public int skinColorB = 0;
+    public int eyeColorR = 0;
+    public int eyeColorG = 0;
+    public int eyeColorB = 0;
+    public int hairColorR = 0;
+    public int hairColorG = 0;
+    public int hairColorB = 0;
+    public int hairStyle = 0;
 
     /**
      * External Citation
@@ -32,10 +38,16 @@ public class Face{
         randomize();
     }
 
-    private void randomize() {
-        this.skinColor = rand.nextInt(256);
-        this.eyeColor = rand.nextInt(256);
-        this.hairColor = rand.nextInt(256);
+    public void randomize() {
+        this.skinColorR = rand.nextInt(256);
+        this.skinColorG = rand.nextInt(256);
+        this.skinColorB = rand.nextInt(256);
+        this.eyeColorR = rand.nextInt(256);
+        this.eyeColorG = rand.nextInt(256);
+        this.eyeColorB = rand.nextInt(256);
+        this.hairColorR = rand.nextInt(256);
+        this.hairColorG = rand.nextInt(256);
+        this.hairColorB = rand.nextInt(256);
         this.hairStyle = rand.nextInt(3);
     }
 }
