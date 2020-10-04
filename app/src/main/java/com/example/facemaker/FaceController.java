@@ -1,11 +1,17 @@
+/*
+@author Tony Hayden
+ */
+
 package com.example.facemaker;
 
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.RadioGroup;
 import android.widget.RadioButton;
 import android.widget.SeekBar;
+import android.widget.Toast;
 
-public class FaceController implements View.OnClickListener, SeekBar.OnSeekBarChangeListener, RadioGroup.OnCheckedChangeListener{
+public class FaceController implements View.OnClickListener, SeekBar.OnSeekBarChangeListener, RadioGroup.OnCheckedChangeListener, AdapterView.OnItemSelectedListener{
 
     private FaceView faceView1;
     private Face face1;
@@ -53,7 +59,7 @@ public class FaceController implements View.OnClickListener, SeekBar.OnSeekBarCh
             }
         }
         if(name.equals("seekBarBlue")) {
-            switch(text) {
+            switch (text) {
                 case "Skin":
                     face1.skinColorB = progress;
                     break;
@@ -65,15 +71,6 @@ public class FaceController implements View.OnClickListener, SeekBar.OnSeekBarCh
                     break;
             }
         }
-        System.out.println(face1.skinColorR);
-        System.out.println(face1.skinColorG);
-        System.out.println(face1.skinColorB);
-        System.out.println(face1.eyeColorR);
-        System.out.println(face1.eyeColorG);
-        System.out.println(face1.eyeColorB);
-        System.out.println(face1.hairColorR);
-        System.out.println(face1.hairColorG);
-        System.out.println(face1.hairColorB);
         faceView1.invalidate();
     }
 
@@ -104,28 +101,18 @@ public class FaceController implements View.OnClickListener, SeekBar.OnSeekBarCh
         RadioButton r = (RadioButton) radioGroup.getChildAt(idx);
         text = r.getText().toString();
         faceView1.invalidate();
+    }
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long l) {
+        String text = parent.getItemAtPosition(position).toString();
+        Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
+        face1.hairStyle = parent.getSelectedItemPosition();
+        faceView1.invalidate();
+    }
 
-        /*SeekBar sbr = faceView1.findViewById((R.id.seekBarRed));
-        SeekBar sbg = faceView1.findViewById((R.id.seekBarGreen));
-        SeekBar sbb = faceView1.findViewById((R.id.seekBarBlue));
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
 
-        switch(text) {
-            case "Skin":
-                sbr.setProgress(face1.skinColorR);
-                sbg.setProgress(face1.skinColorG);
-                sbb.setProgress(face1.skinColorB);
-                break;
-            case "Eyes":
-                sbr.setProgress(face1.eyeColorR);
-                sbg.setProgress(face1.eyeColorG);
-                sbb.setProgress(face1.eyeColorB);
-                break;
-            case "Hair":
-                sbr.setProgress(face1.hairColorR);
-                sbg.setProgress(face1.hairColorG);
-                sbb.setProgress(face1.hairColorB);
-                break;
-        }*/
     }
 }

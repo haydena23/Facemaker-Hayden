@@ -30,10 +30,6 @@ public class Face{
      */
     Random rand = new Random();
 
-    public static void main(String[] args) {
-        Face face1 = new Face();
-    }
-
     public Face() {
         randomize();
     }
